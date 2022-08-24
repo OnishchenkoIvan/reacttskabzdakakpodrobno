@@ -3,21 +3,30 @@ type AccordionPropsType = {
   titleValue: string,
   collapsed: boolean,
 }
-function Accordion(props: AccordionPropsType) {
-  if (props.collapsed) {
-    return (
-      <>
-        <AccordionTitle title ={props.titleValue} />
-      </>
-    )
-  } else
-  return (
-    <>
-      <AccordionTitle title ={props.titleValue} />
-      <AccordionBody/>
-    </>
-  )
+
+function Accordion(props:AccordionPropsType) {
+  console.log('Accordion rendering')
+  return <div>
+    <AccordionTitle title={props.titleValue}/>
+    {props.collapsed === false && <AccordionBody/>}
+  </div>
 }
+
+// function Accordion2(props: AccordionPropsType) {
+//   if (props.collapsed) {
+//     return (
+//       <>
+//         <AccordionTitle title ={props.titleValue} />
+//       </>
+//     )
+//   } else
+//   return (
+//     <>
+//       <AccordionTitle title ={props.titleValue} />
+//       <AccordionBody/>
+//     </>
+//   )
+// }
 type AccordionTitlePropsType = {
   title: string
 }
