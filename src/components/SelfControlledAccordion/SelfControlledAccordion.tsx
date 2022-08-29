@@ -1,14 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
+import Accordion from "../Accordion/Accordion";
 type AccordionPropsType = {
   titleValue: string,
-  collapsed: boolean,
+  // collapsed: boolean,
 }
 
-function Accordion(props:AccordionPropsType) {
+export function SelfControlledAccordion(props:AccordionPropsType) {
   console.log('Accordion rendering')
+  let [on, setControl] = useState(false)
+
+
   return <div>
-    <AccordionTitle title={props.titleValue}/>
-    {props.collapsed === false && <AccordionBody/>}
+    <AccordionTitle title={props.titleValue}/><button onClick={() => setControl(!on)}>Toggle</button>
+    {!on && <AccordionBody/>}
   </div>
 }
 
@@ -51,4 +55,3 @@ function AccordionBody() {
     </>
   )
 }
-export default Accordion;

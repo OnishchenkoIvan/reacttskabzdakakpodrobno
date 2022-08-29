@@ -3,6 +3,7 @@ import './App.css'
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
+import {SelfControlledAccordion} from "./components/SelfControlledAccordion/SelfControlledAccordion";
 
 function App() {
   return (
@@ -26,8 +27,8 @@ function App() {
       {/*<PageTitle title={'This is APP component'}/>*/}
       {/*<PageTitle title={'My friends'}/>*/}
       {/*This is App component*/}
-      {/*<Accordion titleValue={"First menu"} collapsed={false}/>*/}
-      {/*<Accordion titleValue={'Second menu'} collapsed={true}/>*/}
+      <SelfControlledAccordion titleValue={"First menu"} />
+      <SelfControlledAccordion titleValue={'Second menu'} />
       {/*<Rating value={0}/>*/}
       {/*<Rating value={1}/>*/}
       {/*<Rating value={2}/>*/}
