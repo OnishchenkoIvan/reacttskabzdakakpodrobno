@@ -2,12 +2,13 @@ import React from 'react';
 import './App.css'
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
+import {OnOff} from "./components/OnOff/OnOff";
 
 function App() {
   return (
     <div className="App">
-      <input/>
-      <input checked={true} value='you' type={'password'}/>
+      {/*<input/>*/}
+      {/*<input checked={true} value='you' type={'password'}/>*/}
       {/*<header className="App-header">*/}
       {/*  <img src={logo} className="App-logo" alt="logo" />*/}
       {/*  <p>*/}
@@ -22,17 +23,20 @@ function App() {
       {/*    Learn React*/}
       {/*  </a>*/}
       {/*</header>*/}
-      <PageTitle title={'This is APP component'}/>
-      <PageTitle title={'My friends'}/>
-      This is App component
-      <Accordion titleValue={"First menu"} collapsed={false}/>
-      <Accordion titleValue={'Second menu'} collapsed={true}/>
-      <Rating value={0}/>
-      <Rating value={1}/>
-      <Rating value={2}/>
-      <Rating value={3}/>
-      <Rating value={4}/>
-      <Rating value={5}/>
+      {/*<PageTitle title={'This is APP component'}/>*/}
+      {/*<PageTitle title={'My friends'}/>*/}
+      {/*This is App component*/}
+      {/*<Accordion titleValue={"First menu"} collapsed={false}/>*/}
+      {/*<Accordion titleValue={'Second menu'} collapsed={true}/>*/}
+      {/*<Rating value={0}/>*/}
+      {/*<Rating value={1}/>*/}
+      {/*<Rating value={2}/>*/}
+      {/*<Rating value={3}/>*/}
+      {/*<Rating value={4}/>*/}
+      {/*<Rating value={5}/>*/}
+      <OnOff />
+      <OnOff />
+      <OnOff />
     </div>
   );
 }
