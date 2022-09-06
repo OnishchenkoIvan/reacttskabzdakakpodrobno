@@ -1,53 +1,49 @@
-import React from 'react';
-import './App.css'
+import React, { useState } from "react";
+import "./App.css";
+import { Rating, RatingValueType } from "./components/Rating/Rating";
+import { OnOff } from "./components/OnOff/OnOff";
+import { SelfControlledAccordion } from "./components/SelfControlledAccordion/SelfControlledAccordion";
+import { UnControlRating } from "./components/UncontrolRating/UnControlRating";
 import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
-import {OnOff} from "./components/OnOff/OnOff";
-import {SelfControlledAccordion} from "./components/SelfControlledAccordion/SelfControlledAccordion";
+import { UnControlOnOff } from "./components/UnControlOnOff/UnControlOnOff";
 
 function App() {
+  let [ratingValue, setRatingValue] = useState<RatingValueType>(0);
+  let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
+  let [switchON, setSwitchOn] = useState<boolean>(false);
+
   return (
-    <div className="App">
-      {/*<input/>*/}
-      {/*<input checked={true} value='you' type={'password'}/>*/}
-      {/*<header className="App-header">*/}
-      {/*  <img src={logo} className="App-logo" alt="logo" />*/}
-      {/*  <p>*/}
-      {/*    it-kamasutra <code>src/App.tsx</code> and save to reload.*/}
-      {/*  </p>*/}
-      {/*  <a*/}
-      {/*    className="App-link"*/}
-      {/*    href="https://reactjs.org"*/}
-      {/*    target="_blank"*/}
-      {/*    rel="noopener noreferrer"*/}
-      {/*  >*/}
-      {/*    Learn React*/}
-      {/*  </a>*/}
-      {/*</header>*/}
-      {/*<PageTitle title={'This is APP component'}/>*/}
-      {/*<PageTitle title={'My friends'}/>*/}
-      {/*This is App component*/}
+    <div className={"App"}>
+      <Rating value={ratingValue} onClick={setRatingValue} />
+      <Accordion
+        titleValue={"Menu"}
+        collapsed={accordionCollapsed}
+        onChange={() => {
+          setAccordionCollapsed(!accordionCollapsed);
+        }}
+      />
+      <OnOff
+        on={switchON}
+        onChange={(on) => {
+          setSwitchOn(on);
+        }}
+      />
       <SelfControlledAccordion titleValue={"First menu"} />
-      <SelfControlledAccordion titleValue={'Second menu'} />
-      {/*<Rating value={0}/>*/}
-      {/*<Rating value={1}/>*/}
-      {/*<Rating value={2}/>*/}
-      {/*<Rating value={3}/>*/}
-      {/*<Rating value={4}/>*/}
-      {/*<Rating value={5}/>*/}
-      <OnOff />
-      <OnOff />
-      <OnOff />
+      <SelfControlledAccordion titleValue={"Second menu"} />
+      <UnControlOnOff onChange={setSwitchOn} /> {switchON.toString()}
+      {/*<UnControlOnOff />*/}
+      {/*<UnControlOnOff />*/}
+      <UnControlRating />
     </div>
   );
 }
 
 type PageTitlePropsType = {
-  title: string
-}
+  title: string;
+};
 function PageTitle(props: PageTitlePropsType) {
   console.log("PageTitle rendering");
-  return <h1>{props.title}</h1>
+  return <h1>{props.title}</h1>;
 }
 
 export default App;

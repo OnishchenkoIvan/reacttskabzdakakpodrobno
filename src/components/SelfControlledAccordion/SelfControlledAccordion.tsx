@@ -1,19 +1,25 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Accordion from "../Accordion/Accordion";
 type AccordionPropsType = {
-  titleValue: string,
+  titleValue: string;
   // collapsed: boolean,
-}
+};
 
-export function SelfControlledAccordion(props:AccordionPropsType) {
-  console.log('Accordion rendering')
-  let [on, setControl] = useState(false)
+export function SelfControlledAccordion(props: AccordionPropsType) {
+  console.log("Accordion rendering");
+  let [on, setControl] = useState(false);
 
-
-  return <div>
-    <AccordionTitle title={props.titleValue}/><button onClick={() => setControl(!on)}>Toggle</button>
-    {!on && <AccordionBody/>}
-  </div>
+  return (
+    <div>
+      <AccordionTitle
+        title={props.titleValue}
+        onClick={() => {
+          setControl(!on);
+        }}
+      />
+      {!on && <AccordionBody />}
+    </div>
+  );
 }
 
 // function Accordion2(props: AccordionPropsType) {
@@ -32,19 +38,26 @@ export function SelfControlledAccordion(props:AccordionPropsType) {
 //   )
 // }
 type AccordionTitlePropsType = {
-  title: string
-}
+  title: string;
+  onClick: () => void;
+};
 function AccordionTitle(props: AccordionTitlePropsType) {
-  console.log('AccordionTitle rendering');
+  console.log("AccordionTitle rendering");
   return (
     <div>
-      <h3>{props.title}</h3>
+      <h3
+        onClick={() => {
+          props.onClick();
+        }}
+      >
+        {props.title}
+      </h3>
     </div>
   );
 }
 
 function AccordionBody() {
-  console.log('Accordionbody rendering');
+  console.log("Accordionbody rendering");
   return (
     <>
       <ul>
@@ -53,5 +66,5 @@ function AccordionBody() {
         <li>3</li>
       </ul>
     </>
-  )
+  );
 }
