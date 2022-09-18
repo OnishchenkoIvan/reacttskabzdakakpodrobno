@@ -4,7 +4,7 @@ import { Rating, RatingValueType } from "./components/Rating/Rating";
 import { OnOff } from "./components/OnOff/OnOff";
 import { SelfControlledAccordion } from "./components/SelfControlledAccordion/SelfControlledAccordion";
 import { UnControlRating } from "./components/UncontrolRating/UnControlRating";
-import Accordion from "./components/Accordion/Accordion";
+import { Accordion } from "./components/Accordion/Accordion";
 import { UnControlOnOff } from "./components/UnControlOnOff/UnControlOnOff";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
       <UnControlOnOff onChange={setSwitchOn} /> {switchON.toString()}
       {/*<UnControlOnOff />*/}
       {/*<UnControlOnOff />*/}
-      <UnControlRating />
+      {/*<UnControlRating />*/}
     </div>
   );
 }

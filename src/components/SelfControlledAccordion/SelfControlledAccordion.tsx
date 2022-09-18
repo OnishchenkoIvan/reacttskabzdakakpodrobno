@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Accordion from "../Accordion/Accordion";
 type AccordionPropsType = {
   titleValue: string;
   // collapsed: boolean,

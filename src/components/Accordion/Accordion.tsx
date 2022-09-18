@@ -1,15 +1,28 @@
 import React from "react";
-type AccordionPropsType = {
+
+type ItemType = {
+  title: string;
+  value: number;
+};
+
+export type AccordionPropsType = {
   titleValue: string;
   collapsed: boolean;
   onChange: () => void;
+  /**
+   * Elements that are showed when accordion is opened(not collapsed)
+   */
+  items: ItemType[];
+  onClick: (value: any) => void;
 };
 
 export function Accordion(props: AccordionPropsType) {
   return (
     <div>
       <AccordionTitle title={props.titleValue} onChange={props.onChange} />
-      {!props.collapsed && <AccordionBody />}
+      {!props.collapsed && (
+        <AccordionBody items={props.items} onClick={props.onClick} />
+      )}
     </div>
   );
 }
@@ -18,6 +31,7 @@ type AccordionTitlePropsType = {
   title: string;
   onChange: () => void;
 };
+
 function AccordionTitle(props: AccordionTitlePropsType) {
   return (
     <div>
