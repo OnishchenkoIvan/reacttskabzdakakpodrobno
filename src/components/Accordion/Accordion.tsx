@@ -2,7 +2,7 @@ import React from "react";
 
 type ItemType = {
   title: string;
-  value: number;
+  value: any;
 };
 
 export type AccordionPropsType = {
@@ -39,14 +39,25 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     </div>
   );
 }
+export type AccordionBodyPropsType = {
+  items: ItemType[];
+  onClick: (value: any) => void;
+};
 
-function AccordionBody() {
+function AccordionBody(props: AccordionBodyPropsType) {
   return (
     <>
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        {props.items.map((i, index) => (
+          <li
+            onClick={() => {
+              props.onClick(i.value);
+            }}
+            key={index}
+          >
+            {i.title}
+          </li>
+        ))}
       </ul>
     </>
   );

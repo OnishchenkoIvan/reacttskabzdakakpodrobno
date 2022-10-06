@@ -44,7 +44,7 @@ export const ModeChanging = () => {
 
   return (
     <Accordion
-      titleValue={"Users"}
+      titleValue={"--Users--"}
       collapsed={value}
       onChange={() => setValue(!value)}
       items={[
