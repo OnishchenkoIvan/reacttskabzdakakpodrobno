@@ -12,6 +12,15 @@ function App() {
   let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
   let [switchON, setSwitchOn] = useState<boolean>(false);
 
+  const items = [
+    { title: "Dimych", value: 1 },
+    { title: "Valera", value: 2 },
+    { title: "Artem", value: 3 },
+    { title: "Viktor", value: 4 },
+  ];
+  function onClick(value: number) {
+    alert(`user with ID ${value} should be happy`);
+  }
   return (
     <div className={"App"}>
       <Rating value={ratingValue} onClick={setRatingValue} />
@@ -21,6 +30,8 @@ function App() {
         onChange={() => {
           setAccordionCollapsed(!accordionCollapsed);
         }}
+        onClick={onClick}
+        items={items}
       />
       <OnOff
         on={switchON}
