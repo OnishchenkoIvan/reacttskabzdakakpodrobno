@@ -29,3 +29,29 @@ export const SimpleExample = () => {
     </>
   );
 };
+
+export const SetTimeoutExample = () => {
+  const [fake, setFake] = useState(1);
+  const [counter, setCounter] = useState(1);
+
+  console.log("SimpleExample");
+
+  // let a = new Date();
+  // let hour = a.getHours();
+  // let minutes = a.getMinutes();
+  // let seconds = a.getSeconds();
+
+  useEffect(() => {
+    setInterval(() => {
+      setCounter((state) => state + 1);
+    }, 1000);
+  }, []);
+
+  return (
+    <>
+      {/*Hello, counter: {counter} - fake: {hour}:{minutes}:{seconds}*/}
+      {/*<button onClick={() => setFake(fake + 1)}>fake+</button>*/}
+      {/*<button onClick={() => setCounter(counter + 1)}>count+</button>*/}
+    </>
+  );
+};
